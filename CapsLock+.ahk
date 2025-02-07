@@ -80,10 +80,6 @@ start:
 send !{f4}
 return
 
-; !space::
-; send {enter}
-; return
-
 !h::
 send {left}
 return
@@ -112,28 +108,12 @@ return
 send ^\e
 return
 
-; !1::
-; send {f1}
-; return
-
-; !2::
-; send {f2}
-; return
-
-; !-::
-; send {f11}
-; return
-
-; !=::
-; send {f12}
-; return
-
 >!q::
-send +{1}  ;output !
+send {!}
 return
 
 >!w::
-send @
+send {@}
 return
 
 >!e::
@@ -141,11 +121,11 @@ send {#}
 return
 
 >!r::
-send $
+send {$}
 return
 
 >!t::
-send +{5}
+SendInput, +{5}
 return
 
 <!y::
@@ -162,13 +142,13 @@ return
 sendinput, {volume_Up}
 return
 
-; win + j = win + down
-; win + k = win + up
 
 ;-----------------START-----------------
 global ctrlZ, CapsLock2, CapsLock
 
+;---按下CapsLock键---
 Capslock::
+
 ;ctrlZ:     Capslock+Z undo / redo flag
 ;Capslock:  Capslock 键状态标记，按下是1，松开是0
 ;Capslock2: 是否使用过 Capslock+ 功能标记，使用过会清除这个变量
@@ -178,7 +158,7 @@ SetTimer, setCapsLock2, -300 ; 300ms 犹豫操作时间
 
 settimer, changeMouseSpeed, 50 ;暂时修改鼠标速度
 
-KeyWait, Capslock
+KeyWait, Capslock ; 等待CapsLock键释放
 CapsLock:="" ;Capslock最优先置空，来关闭 Capslock+ 功能的触发
 if CapsLock2
 {
@@ -218,18 +198,18 @@ return
 OnClipboardChange:  ; 剪贴板内容改变时将运行
 
 ; 如果有复制操作时，capslock键没有按下，那就是系统原生复制
-if (allowRunOnClipboardChange && !CapsLock && CLsets.global.allowClipboard != "0")
-{
-    try {
-        clipSaver("s")
-    } catch _ {
-        sleep 100
-        clipSaver("s")
-    }
-    whichClipboardNow:=0
-}
-allowRunOnClipboardChange:=true
-return
+;if (allowRunOnClipboardChange && !CapsLock && CLsets.global.allowClipboard != "0")
+;{
+;    try {
+;        clipSaver("s")
+;    } catch _ {
+;        sleep 100
+;        clipSaver("s")
+;    }
+;    whichClipboardNow:=0
+;}
+;allowRunOnClipboardChange:=true
+;return
 
 
 ;----------------------------keys-set-start-----------------------------
@@ -241,6 +221,13 @@ return
 #if
 
 #If CapsLock ;when capslock key press and hold
+
+LButton::
+try
+    runFunc(keyset.caps_LButton)
+CapsLock2:=""
+SetCapsLockState, % "Off" ; 长按caps加左键会触发大写锁定，原因未知
+return
 
 LAlt::return
 

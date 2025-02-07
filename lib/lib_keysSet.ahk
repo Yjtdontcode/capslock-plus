@@ -58,7 +58,7 @@ keySchemeInit_capslox(){
     if(!keyset.caps_q)
         keyset.caps_q:="keyFunc_qbar"
     if(!keyset.caps_r)
-        keyset.caps_r:="keyFunc_delete"
+        keyset.caps_r:="keyFunc_doNothing"
     if(!keyset.caps_s)
         keyset.caps_s:="keyFunc_moveLeft"
     if(!keyset.caps_t)
@@ -68,7 +68,7 @@ keySchemeInit_capslox(){
     if(!keyset.caps_v)
         keyset.caps_v:="keyFunc_paste_1"
     if(!keyset.caps_w)
-        keyset.caps_w:="keyFunc_backspace"
+        keyset.caps_w:="keyFunc_doNothing"
     if(!keyset.caps_x)
         keyset.caps_x:="keyFunc_cut_1"
     if(!keyset.caps_y)
@@ -153,6 +153,8 @@ keySchemeInit_capslox(){
         keyset.caps_f11:="keyFunc_doNothing"
     if(!keyset.caps_f12)
         keyset.caps_f12:="keyFunc_switchClipboard"
+    if(!keyset.caps_delete)
+        keyset.caps_delete:="keyFunc_ctrl(Delete)"
         
     ; LAlt--------------------------------------------
 
@@ -286,13 +288,22 @@ keySchemeInit_capslox(){
         
     ;--------------------other--------------------
         
+    if(!keyset.caps_LButton)
+        keyset.caps_LButton:="keyFunc_ctrl_lClick"
     if(!keyset.caps_lalt_wheelUp)
         keyset.caps_lalt_wheelUp:="keyFunc_mouseSpeedIncrease"
     if(!keyset.caps_lalt_wheelDown)
         keyset.caps_lalt_wheelDown:="keyFunc_mouseSpeedDecrease"
 
+    
+    ;-------------------alt----------------------
+    ;if(!keyset.alt_h)
+    ;    keyset.alt_h:="keyFunc_moveLeft"
+
     return
 }
+
+
 
 
 

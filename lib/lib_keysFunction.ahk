@@ -11,8 +11,13 @@ keyFunc_test(){
     return
 }
 
+keyFunc_ctrl(key){
+    SendInput, ^{%key%}
+    return
+}
+
 keyFunc_send(p){
-    sendinput, % p
+    SendInput, % p
     return
 }
 
@@ -337,6 +342,21 @@ keyFunc_pasteSystem(){
     return
 }
 
+keyFunc_copy_0(){
+    SendInput, ^{c}
+    return
+}
+
+keyFunc_paste_0(){
+    SendInput, ^{v}
+    return
+}
+
+keyFunc_cut_0(){
+    SendInput, ^{x}
+    return
+}
+
 
 keyFunc_cut_1(){
     global
@@ -534,7 +554,7 @@ keyFunc_qbar(){
 }
 
 
-keyFunc_tabPrve(){
+keyFunc_tabPrev(){
     SendInput, ^+{tab}
     return
 }
@@ -642,6 +662,17 @@ keyFunc_pageMoveLineDown(i:=1){
     return
 }
 
+keyFunc_save(){
+    SendInput, ^{s}
+    return
+}
+
+; 无法实现
+keyFunc_switchIM(){
+    ;SendInput, !{Shift Down}{Shift Up}
+    SendInput, #{Space}
+    return
+}
 
 
 keyFunc_getJSEvalString(){
@@ -818,6 +849,13 @@ keyFunc_winPin(){
 keyFunc_goCjkPage(){
     global
     run, http://cjkis.me
+    return
+}
+
+keyFunc_ctrl_lClick(){
+    Send, {Ctrl Down}{LButton Down}
+    KeyWait, LButton  ; 等待左键释放
+    Send, {LButton Up}{Ctrl Up}
     return
 }
 
