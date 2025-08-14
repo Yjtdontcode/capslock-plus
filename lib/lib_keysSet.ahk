@@ -28,7 +28,7 @@ keySchemeInit_capslox(){
     if(!keyset.caps_b)
         keyset.caps_b:="keyFunc_moveDown(10)"
     if(!keyset.caps_c)
-        keyset.caps_c:="keyFunc_copy_1"
+        keyset.caps_c:="keyFunc_copy_0"
     if(!keyset.caps_d)
         keyset.caps_d:="keyFunc_moveDown"
     if(!keyset.caps_e)
@@ -66,15 +66,15 @@ keySchemeInit_capslox(){
     if(!keyset.caps_u)
         keyset.caps_u:="keyFunc_selectHome"
     if(!keyset.caps_v)
-        keyset.caps_v:="keyFunc_paste_1"
+        keyset.caps_v:="keyFunc_paste_0"
     if(!keyset.caps_w)
         keyset.caps_w:="keyFunc_doNothing"
     if(!keyset.caps_x)
-        keyset.caps_x:="keyFunc_cut_1"
+        keyset.caps_x:="keyFunc_cut_0"
     if(!keyset.caps_y)
-        keyset.caps_y:="keyFunc_selectUp(10)"
+        keyset.caps_y:="keyFunc_undoRedo"
     if(!keyset.caps_z)
-        keyset.caps_z:="keyFunc_doNothing"
+        keyset.caps_z:="keyFunc_undoRedo"
 
     if(!keyset.caps_backquote)
         keyset.caps_backquote:="keyFunc_doNothing"
@@ -165,7 +165,7 @@ keySchemeInit_capslox(){
     if(!keyset.caps_lalt_c)
         keyset.caps_lalt_c:="keyFunc_copy_2"
     if(!keyset.caps_lalt_d)
-        keyset.caps_lalt_d:="keyFunc_moveDown(3)"
+        keyset.caps_lalt_d:="keyFunc_delete())"
     if(!keyset.caps_lalt_e)
         keyset.caps_lalt_e:="keyFunc_moveUp(3)"
     if(!keyset.caps_lalt_f)

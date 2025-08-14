@@ -13,6 +13,7 @@ keyFunc_test(){
 
 keyFunc_ctrl(key){
     SendInput, ^{%key%}
+    ; sleep(20)
     return
 }
 
@@ -136,6 +137,12 @@ keyFunc_deleteWord(){
 
 keyFunc_forwardDeleteWord(){
     SendInput, +^{right}
+    SendInput, {delete}
+    Return
+}
+
+keyFunc_backwardDeleteLine(){  ; ssy
+    SendInput, +{home}
     SendInput, {delete}
     Return
 }
@@ -342,20 +349,6 @@ keyFunc_pasteSystem(){
     return
 }
 
-keyFunc_copy_0(){
-    SendInput, ^{c}
-    return
-}
-
-keyFunc_paste_0(){
-    SendInput, ^{v}
-    return
-}
-
-keyFunc_cut_0(){
-    SendInput, ^{x}
-    return
-}
 
 
 keyFunc_cut_1(){
@@ -380,6 +373,36 @@ keyFunc_cut_1(){
         ;cClipboardAll:=ClipboardAll
         clipSaver("c")
         whichClipboardNow:=1
+    }
+    else
+    {
+        Clipboard:=ClipboardOld
+    }
+    Return
+}
+
+keyFunc_cut_0(){  ; ssy
+    global
+    if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
+    {
+        CapsLock2:=""
+        return
+    }
+        
+    ClipboardOld:=ClipboardAll
+    Clipboard:=""
+    SendInput, ^{x}
+    ClipWait, 0.1
+    if (ErrorLevel)
+    {
+        SendInput,{home}+{End}^{x}
+        ClipWait, 0.1
+    }
+    if (!ErrorLevel)
+    {
+        ;cClipboardAll:=ClipboardAll
+        clipSaver("s")
+        whichClipboardNow:=0
     }
     else
     {
@@ -419,6 +442,35 @@ keyFunc_copy_1(){
     return
 }
 
+keyFunc_copy_0(){  ; ssy
+    global
+    if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
+    {
+        CapsLock2:=""
+        return
+    }
+
+    ClipboardOld:=ClipboardAll
+    Clipboard:=""
+    SendInput, ^{insert}
+    ClipWait, 0.1
+    if (ErrorLevel)
+    {
+        SendInput,{home}+{End}^{insert}{End}
+        ClipWait, 0.1
+    }
+    if (!ErrorLevel)
+    {
+        ;  cClipboardAll:=ClipboardAll
+        clipSaver("s")
+        whichClipboardNow:=0
+    }
+    else
+    {
+        Clipboard:=ClipboardOld
+    }
+    return
+}
 
 keyFunc_paste_1(){
     global
@@ -432,6 +484,23 @@ keyFunc_paste_1(){
     {
         Clipboard:=cClipboardAll
         whichClipboardNow:=1
+    }
+    SendInput, ^{v}
+    Return
+}
+
+keyFunc_paste_0(){  ; ssy
+    global
+    if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
+    {
+        CapsLock2:=""
+        return
+    }
+
+    if (whichClipboardNow!=0)
+    {
+        Clipboard:=sClipboardAll
+        whichClipboardNow:=0
     }
     SendInput, ^{v}
     Return

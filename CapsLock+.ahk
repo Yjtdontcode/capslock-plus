@@ -61,6 +61,8 @@ allowRunOnClipboardChange:=true
 #Include lib_mathBoard.ahk
 #include lib_loadAnimation.ahk
 
+;----------------diy-------------------
+#include custom_scripts.ahk ; 自定义的快捷键
 
 ;change dir
 #include ..\userAHK
@@ -73,75 +75,6 @@ Process Priority,,High
 
 
 start:
-
-;----------------diy-------------------
-
-!x::
-send !{f4}
-return
-
-!h::
-send {left}
-return
-
-!j::
-send {down}
-return
-
-!k::
-send {up}
-return
-
-!l::
-send {right}
-return
-
-!f::
-send {end}
-return
-
-!a::
-send {home}
-return
-
-<!e::
-send ^\e
-return
-
->!q::
-send {!}
-return
-
->!w::
-send {@}
-return
-
->!e::
-send {#}
-return
-
->!r::
-send {$}
-return
-
->!t::
-SendInput, +{5}
-return
-
-<!y::
-send {^}
-return
-
-; alt + ; = volumeDown
-!;::
-sendinput, {volume_Down}
-return
-
-; alt + ' = volumeUp
-!'::
-sendinput, {volume_Up}
-return
-
 
 ;-----------------START-----------------
 global ctrlZ, CapsLock2, CapsLock
@@ -195,7 +128,7 @@ setCapsLock2:
 CapsLock2:=""
 return
 
-OnClipboardChange:  ; 剪贴板内容改变时将运行
+;OnClipboardChange:  ; 剪贴板内容改变时将运行
 
 ; 如果有复制操作时，capslock键没有按下，那就是系统原生复制
 ;if (allowRunOnClipboardChange && !CapsLock && CLsets.global.allowClipboard != "0")
@@ -905,6 +838,14 @@ return
 ;      keyFunc_outWinMinimizeStack()
 ;      Capslock2:=""
 ;  return
+
+
+;--------------------caps + shift----------------------
+
++backspace::
+  keyFunc_backwardDeleteLine()
+  Capslock2:=""
+return
 
 
 
