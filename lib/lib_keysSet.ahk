@@ -20,8 +20,8 @@ keySchemeInit_capslox(){
     global
 
     if(!keyset.press_caps)
-        keyset.press_caps:="keyFunc_toggleCapsLock"
-        ; keyset.press_caps:="keyFunc_esc"
+        ; keyset.press_caps:="keyFunc_toggleCapsLock"
+        keyset.press_caps:="keyFunc_esc"
 
     if(!keyset.caps_a)
         keyset.caps_a:="keyFunc_moveWordLeft"
@@ -294,11 +294,6 @@ keySchemeInit_capslox(){
         keyset.caps_lalt_wheelUp:="keyFunc_mouseSpeedIncrease"
     if(!keyset.caps_lalt_wheelDown)
         keyset.caps_lalt_wheelDown:="keyFunc_mouseSpeedDecrease"
-
-    
-    ;-------------------alt----------------------
-    ;if(!keyset.alt_h)
-    ;    keyset.alt_h:="keyFunc_moveLeft"
 
     return
 }

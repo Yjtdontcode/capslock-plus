@@ -50,7 +50,7 @@ allowRunOnClipboardChange:=true
 ;  #include lib_fileMethods.ahk
 
 #include lib_settings.ahk ;get the settings from capslock+settings.ini 
-#Include lib_clQ.ahk ;capslock+Q
+#Include lib_clQ.ahk      ;capslock+Q
 #Include lib_ydTrans.ahk  ;capslock+T translate
 #Include lib_clTab.ahk 
 #Include lib_functions.ahk ;public functions
@@ -61,12 +61,12 @@ allowRunOnClipboardChange:=true
 #Include lib_mathBoard.ahk
 #include lib_loadAnimation.ahk
 
-;----------------diy-------------------
-#include custom_scripts.ahk ; 自定义的快捷键
-
 ;change dir
 #include ..\userAHK
 #include *i main.ahk
+;----------------diy-------------------
+;包含在上面的userAHK文件夹里,用main.ahk引用
+;#include custom_scripts.ahk ; 自定义的快捷键
 
 #MaxHotkeysPerInterval 500
 #NoEnv

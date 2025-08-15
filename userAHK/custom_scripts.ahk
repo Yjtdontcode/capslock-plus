@@ -1,10 +1,5 @@
 ;----------------diy-------------------
 
-; alt + x = alt + f4
-!x::
-send !{f4}
-return
-
 ; alt + h = {left}
 !h::
 send {left}
@@ -59,6 +54,17 @@ return
 !y::
   send {^}
 return
+
+; alt + x = alt + f4
+!x::
+  send !{f4}
+return
+
+; alt + c = {CapsLock}
+!c::
+  SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
+return
+
 
 ; alt + ; = volumeDown
 !;::
