@@ -307,7 +307,8 @@ keySchemeInit_capslockPlus(){
     global
 
     if(!keyset.press_caps)
-        keyset.press_caps:="keyFunc_toggleCapsLock"
+        ;keyset.press_caps:="keyFunc_toggleCapsLock"
+        keyset.press_caps:="keyFunc_esc"
 
     if(!keyset.caps_a)
         keyset.caps_a:="keyFunc_moveWordLeft"

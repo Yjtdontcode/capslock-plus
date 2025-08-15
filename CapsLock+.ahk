@@ -87,12 +87,14 @@ Capslock::
 ;Capslock2: 是否使用过 Capslock+ 功能标记，使用过会清除这个变量
 ctrlZ:=CapsLock2:=CapsLock:=1
 
-SetTimer, setCapsLock2, -300 ; 300ms 犹豫操作时间
+SetTimer, clearCapsLock2, -300 ; 300ms 犹豫操作时间
 
 settimer, changeMouseSpeed, 50 ;暂时修改鼠标速度
 
 KeyWait, Capslock ; 等待CapsLock键释放
 CapsLock:="" ;Capslock最优先置空，来关闭 Capslock+ 功能的触发
+
+; 如果单击CapsLock键:
 if CapsLock2
 {
     if keyset.press_caps
@@ -124,7 +126,7 @@ KeyWait, Capslock
 CapsLock:=""
 return
 
-setCapsLock2:
+clearCapsLock2:
 CapsLock2:=""
 return
 
