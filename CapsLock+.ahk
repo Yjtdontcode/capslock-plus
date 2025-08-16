@@ -120,7 +120,8 @@ return
 <!Capslock::
 >!Capslock::
 #Capslock::
-; 按下lalt+Capslock或win+Capslock时，同样启动 Capslock+ 功能
++Capslock::    ; ssy
+; 按下alt+Capslock、shift+Capslock或win+Capslock时，同样启动 Capslock+ 功能
 CapsLock:=1
 KeyWait, Capslock
 CapsLock:=""

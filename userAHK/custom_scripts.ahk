@@ -75,7 +75,3 @@ return
 !'::
   sendinput, {volume_Up}
 return
-
-; 取消shift+caps键开关大小写
-+CapsLock::
-return
