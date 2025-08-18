@@ -248,6 +248,7 @@ tab::
 enter::
 esc::
 backspace::
+delete::
 ralt::
 try
     runFunc(keyset["caps_" . A_ThisHotkey])
@@ -850,7 +851,10 @@ return
   Capslock2:=""
 return
 
-
++delete::
+  keyFunc_forwardDeleteLine()
+  Capslock2:=""
+return
 
 #If
 

@@ -141,6 +141,19 @@ keyFunc_forwardDeleteWord(){
     Return
 }
 
+keyFunc_forwardDeleteLine(){  ; ssy
+  SendInput, +{end}
+  SendInput, {delete}
+  Return
+}
+
+
+keyFunc_backwardDeleteWord(){  ; ssy
+    SendInput, +^{left}
+    SendInput, {delete}
+    Return
+}
+
 keyFunc_backwardDeleteLine(){  ; ssy
     SendInput, +{home}
     SendInput, {delete}
@@ -957,12 +970,12 @@ keyfunc_mouse_right(){
 
 ; 上滑滚轮
 keyfunc_wheel_up(){
-    Send, {WheelUp 3}
+    Send, {WheelUp 5}
 }
 
 ; 下滑滚轮
 keyfunc_wheel_down(){
-    Send, {Wheeldown 3}
+    Send, {Wheeldown 5}
 }
 
  

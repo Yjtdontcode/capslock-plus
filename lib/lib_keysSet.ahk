@@ -153,8 +153,6 @@ keySchemeInit_capslox(){
         keyset.caps_f11:="keyFunc_doNothing"
     if(!keyset.caps_f12)
         keyset.caps_f12:="keyFunc_switchClipboard"
-    if(!keyset.caps_delete)
-        keyset.caps_delete:="keyFunc_ctrl(Delete)"
         
     ; LAlt--------------------------------------------
 
