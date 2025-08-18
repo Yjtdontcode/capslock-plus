@@ -324,6 +324,21 @@ keyFunc_pageMoveDown(){
     return
 }
 
+keyFunc_undoRedo(){
+    global
+    if(ctrlZ)
+    {
+        SendInput, ^{z}
+        ctrlZ:=""
+    }
+    Else
+    {
+        SendInput, ^{y}
+        ctrlZ:=1
+    }
+    Return
+}
+
 keyFunc_switchClipboard(){
     global
     if(CLsets.global.allowClipboard)
@@ -363,7 +378,66 @@ keyFunc_pasteSystem(){
 }
 
 
+; ----- system clipboard -----
+keyFunc_cut_0(){  ; ssy
+    ClipboardOld:=ClipboardAll
+    Clipboard:=""
+    SendInput, ^{x}
+    ClipWait, 0.1  ; 0.1s内剪切板无变化则将ErrorLevel置为1，否则置为0
 
+    ;if (ErrorLevel)
+    ;{
+    ;    SendInput,{home}+{End}^{x}
+    ;    ClipWait, 0.1
+    ;}  ; 原作者写的没看懂
+
+    if (!ErrorLevel)
+    {
+        clipSaver("s")  ; sClipboardAll:=ClipboardAll
+        whichClipboardNow:=0
+    }
+    else  ; ErrorLevel == 1
+    {
+        Clipboard:=ClipboardOld
+    }
+    Return
+}
+
+keyFunc_copy_0(){  ; ssy
+    ClipboardOld:=ClipboardAll
+    Clipboard:=""
+    SendInput, ^{c}
+    ClipWait, 0.1  ; 0.1s内剪切板无变化则将ErrorLevel置为1，否则置为0
+
+    ;if (ErrorLevel)
+    ;{
+    ;    SendInput,{home}+{End}^{c}
+    ;    ClipWait, 0.1
+    ;}  ; 原作者写的没看懂
+
+    if (!ErrorLevel)
+    {
+        clipSaver("s")  ; sClipboardAll:=ClipboardAll
+        whichClipboardNow:=0
+    }
+    else
+    {
+        Clipboard:=ClipboardOld
+    }
+    return
+}
+
+keyFunc_paste_0(){  ; ssy
+    if (whichClipboardNow!=0)  ; 如果当前使用的剪切板不是系统剪切板
+    {
+        Clipboard:=sClipboardAll
+        whichClipboardNow:=0
+    }
+    SendInput, ^{v}
+    Return
+}
+
+; ----- cClipboard -----
 keyFunc_cut_1(){
     global
     if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
@@ -393,37 +467,6 @@ keyFunc_cut_1(){
     }
     Return
 }
-
-keyFunc_cut_0(){  ; ssy
-    global
-    if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
-    {
-        CapsLock2:=""
-        return
-    }
-        
-    ClipboardOld:=ClipboardAll
-    Clipboard:=""
-    SendInput, ^{x}
-    ClipWait, 0.1
-    if (ErrorLevel)
-    {
-        SendInput,{home}+{End}^{x}
-        ClipWait, 0.1
-    }
-    if (!ErrorLevel)
-    {
-        ;cClipboardAll:=ClipboardAll
-        clipSaver("s")
-        whichClipboardNow:=0
-    }
-    else
-    {
-        Clipboard:=ClipboardOld
-    }
-    Return
-}
-
 
 keyFunc_copy_1(){
     global
@@ -455,35 +498,7 @@ keyFunc_copy_1(){
     return
 }
 
-keyFunc_copy_0(){  ; ssy
-    global
-    if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
-    {
-        CapsLock2:=""
-        return
-    }
 
-    ClipboardOld:=ClipboardAll
-    Clipboard:=""
-    SendInput, ^{insert}
-    ClipWait, 0.1
-    if (ErrorLevel)
-    {
-        SendInput,{home}+{End}^{insert}{End}
-        ClipWait, 0.1
-    }
-    if (!ErrorLevel)
-    {
-        ;  cClipboardAll:=ClipboardAll
-        clipSaver("s")
-        whichClipboardNow:=0
-    }
-    else
-    {
-        Clipboard:=ClipboardOld
-    }
-    return
-}
 
 keyFunc_paste_1(){
     global
@@ -502,40 +517,9 @@ keyFunc_paste_1(){
     Return
 }
 
-keyFunc_paste_0(){  ; ssy
-    global
-    if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
-    {
-        CapsLock2:=""
-        return
-    }
-
-    if (whichClipboardNow!=0)
-    {
-        Clipboard:=sClipboardAll
-        whichClipboardNow:=0
-    }
-    SendInput, ^{v}
-    Return
-}
 
 
-keyFunc_undoRedo(){
-    global
-    if(ctrlZ)
-    {
-        SendInput, ^{z}
-        ctrlZ:=""
-    }
-    Else
-    {
-        SendInput, ^{y}
-        ctrlZ:=1
-    }
-    Return
-}
-
-
+; ----- caClipboard -----
 keyFunc_cut_2(){
     global
     if(CLsets.global.allowClipboard="0")  ;禁用剪贴板功能
