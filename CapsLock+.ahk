@@ -63,10 +63,11 @@ allowRunOnClipboardChange:=true
 
 ;change dir
 #include ..\userAHK
-#include *i main.ahk
+#include *i my_function.ahk
 ;----------------diy-------------------
 ;包含在上面的userAHK文件夹里,用main.ahk引用
-;#include custom_scripts.ahk ; 自定义的快捷键
+#include custom_scripts.ahk ; 自定义的快捷键
+#include Quote+.ahk         ; 引号当Shift
 
 #MaxHotkeysPerInterval 500
 #NoEnv
@@ -82,39 +83,38 @@ global ctrlZ, CapsLock2, CapsLock
 ;---按下CapsLock键---
 Capslock::
 
-;ctrlZ:     Capslock+Z undo / redo flag
-;Capslock:  Capslock 键状态标记，按下是1，松开是0
-;Capslock2: 是否使用过 Capslock+ 功能标记，使用过会清除这个变量
-ctrlZ:=CapsLock2:=CapsLock:=1
+  ;ctrlZ:     Capslock+Z undo / redo flag
+  ;Capslock:  Capslock 键状态标记，按下是1，松开是0
+  ;Capslock2: 是否使用过 Capslock+ 功能标记，使用过会清除这个变量
+  ctrlZ:=CapsLock2:=CapsLock:=1
 
-SetTimer, clearCapsLock2, -300 ; 300ms 犹豫操作时间
+  SetTimer, clearCapsLock2, -300 ; 300ms 犹豫操作时间，超过这个时间就不作为单击CapsLock键看待
 
-settimer, changeMouseSpeed, 50 ;暂时修改鼠标速度
+  settimer, changeMouseSpeed, 50 ;暂时修改鼠标速度
 
-KeyWait, Capslock ; 等待CapsLock键释放
-CapsLock:="" ;Capslock最优先置空，来关闭 Capslock+ 功能的触发
+  KeyWait, Capslock ; 等待CapsLock键释放
+  CapsLock:=""  ; Capslock最优先置空，来关闭 Capslock+ 功能的触发
 
-; 如果单击CapsLock键:
-if CapsLock2
-{
+  ; 如果单击CapsLock键:
+  if CapsLock2
+  {
     if keyset.press_caps
     {
-        try
-            runFunc(keyset.press_caps)
+      try
+      runFunc(keyset.press_caps)
     }
     else
     {
-        SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
+      SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
     }
     ; sendinput, {esc}
-}
-CapsLock2:=""
+  }
+  CapsLock2:=""
 
-;
-if(winTapedX!=-1)
-{
+  if(winTapedX!=-1)
+  {
     winsSort(winTapedX)
-}
+  }
 return
 
 <!Capslock::
@@ -187,7 +187,7 @@ return
 ;    ,"f1":"f1","f2":"f2","f3":"f3","f4":"f4","f5":"f5","f6":"f6"
 ;    ,"f7":"f7","f8":"f8","f9":"f9","f10":"f10","f11":"f11","f12":"f12"
 ;    ,"f13":"f13","f14":"f14","f15":"f15","f16":"f16","f17":"f17","f18":"f18","f19":"f19"
-;    ,"space":"space","tab":"tab","enter":"enter","esc":"esc","backspace":"backspace"
+;    ,"space":"space","tab":"tab","enter":"enter","esc":"esc","backspace":"backspace","delete":"delete"
 ;    ,"`":"backQuote","-":"minus","=":"equal","[":"leftSquareBracket","]":"rightSquareBracket"
 ;    ,"\":"backSlash",";":"semicolon","'":"quote",",":"comma",".":"dot","/":"slash","ralt":"ralt"
 ;    ,"wheelUp":"wheelUp","wheelDown":"wheelDown"}
@@ -329,7 +329,6 @@ Return
 ;      runFunc(keyset.caps_ralt)
 ;  Capslock2:=""
 ;  return
-
 
 
 ;---------------------caps+lalt----------------

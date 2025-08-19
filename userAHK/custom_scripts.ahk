@@ -1,13 +1,13 @@
-;----------------diy-------------------
+; ----------- alt + ---------------
 
 ; alt + h = {left}
 !h::
-send {left}
+  send {left}
 return
 
 ; alt + j = {down}
 !j::
-send {down}
+  send {down}
 return
 
 ; alt + k = {up}

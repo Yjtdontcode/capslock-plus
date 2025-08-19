@@ -11,12 +11,6 @@ keyFunc_test(){
     return
 }
 
-keyFunc_ctrl(key){
-    SendInput, ^{%key%}
-    ; sleep(20)
-    return
-}
-
 keyFunc_send(p){
     SendInput, % p
     return
