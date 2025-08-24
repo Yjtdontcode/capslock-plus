@@ -1,24 +1,20 @@
 ; ----------- alt + ---------------
 
 ; alt + h = {left}
-!h::
-  send {left}
-return
+!h::Send {Left Down}
+!h Up::Send {Left Up}
+
+; alt + l = {Right}
+!l::Send {Right Down}
+!l Up::Send {Right Up}
 
 ; alt + j = {down}
-!j::
-  send {down}
-return
+!j::Send {Down Down}
+!j Up::Send {Down Up}
 
 ; alt + k = {up}
-!k::
-  send {up}
-return
-
-; alt + l = {right}
-!l::
-  send {right}
-return
+!k::Send {Up Down}
+!k Up::Send {Up Up}
 
 ; alt + u = {pageUp}
 !u::

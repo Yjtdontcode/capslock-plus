@@ -66,7 +66,7 @@ allowRunOnClipboardChange:=true
 #include *i my_function.ahk
 ;----------------diy-------------------
 ;包含在上面的userAHK文件夹里,用main.ahk引用
-#include custom_scripts.ahk ; 自定义的快捷键
+#include my_hotkey.ahk ; 自定义的快捷键
 #include Quote+.ahk         ; 引号当Shift
 
 #MaxHotkeysPerInterval 500
@@ -853,6 +853,21 @@ return
 +delete::
   keyFunc_forwardDeleteLine()
   Capslock2:=""
+return
+
++l::  ; 下一首歌
+  Send {Media_Next}
+  Capslock2:=""
+return
+
++h::  ; 上一首歌
+  Send {Media_Prev}
+  CapsLock2:=""
+return
+
++p::  ; 暂停播放
+  Send {Media_Play_Pause}
+  CapsLock2:=""
 return
 
 #If

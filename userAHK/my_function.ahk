@@ -13,8 +13,6 @@
 
 #include demo.ahk
 
-; --- custom key ---
-#include custom_scripts.ahk
 
 keyFunc_example1(){
   msgbox, example1
