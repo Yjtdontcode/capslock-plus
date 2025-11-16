@@ -66,7 +66,7 @@ allowRunOnClipboardChange:=true
 #include *i my_function.ahk
 ;----------------diy-------------------
 ;包含在上面的userAHK文件夹里,用main.ahk引用
-#include my_hotkey.ahk ; 自定义的快捷键
+#include my_hotkey.ahk   ; 自定义的快捷键
 #include Quote+.ahk         ; 引号当Shift
 
 #MaxHotkeysPerInterval 500
