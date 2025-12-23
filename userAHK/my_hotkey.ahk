@@ -21,35 +21,6 @@
   send {PgUp}
 return
 
-; alt + q = {!}
-!q::
-  send {!}
-return
-
-; alt + w = {@}
-!w::
-  send {@}
-return
-
-; alt + e = {#}
-!e::
-  send {#}
-return
-
-; alt + r = {$}
-!r::
-  send {$}
-return
-
-; alt + t = {%}
-!t::
-  SendInput, +{5}
-return
-
-; alt + y = {^}
-!y::
-  send {^}
-return
 
 ; alt + x = alt + f4
 !x::
