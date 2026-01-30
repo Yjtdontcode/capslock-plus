@@ -331,7 +331,7 @@ Return
 ;  return
 
 
-;---------------------caps+lalt----------------
+;---------------------caps + lalt----------------
 
 <!a::
 try
@@ -869,6 +869,29 @@ return
   Send {Media_Play_Pause}
   CapsLock2:=""
 return
+
+
++1::
++2::
++3::
++4::
++5::
++6::
++7::
++8::
++9::
++0::
+  keyFunc_ctrl_shift(A_ThisHotkey)
+  CapsLock2:=""
+return
+
+; --------------------------------------
+
+' & 1::Send, ^+1
+' & 2::Send, ^+2
+' & 3::Send, ^+3
+' & 4::Send, ^+4
+' & 5::Send, ^+5
 
 #If
 
