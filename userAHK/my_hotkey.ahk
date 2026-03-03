@@ -1,3 +1,4 @@
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 ; ----------- alt + ---------------
 
 ; alt + h = {left}
@@ -42,3 +43,4 @@ return
 !'::
   sendinput, {volume_Up}
 return
+

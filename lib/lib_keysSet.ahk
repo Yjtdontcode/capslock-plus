@@ -79,15 +79,15 @@ keySchemeInit_capslox(){
     if(!keyset.caps_backquote)
         keyset.caps_backquote:="keyFunc_doNothing"
     if(!keyset.caps_1)
-        keyset.caps_1:="keyFunc_winbind_activate(1)"
+        keyset.caps_1:="keyFunc_doNothing"
     if(!keyset.caps_2)
-        keyset.caps_2:="keyFunc_winbind_activate(2)"
+        keyset.caps_2:="keyFunc_doNothing"
     if(!keyset.caps_3)
-        keyset.caps_3:="keyFunc_winbind_activate(3)"
+        keyset.caps_3:="keyFunc_doNothing"
     if(!keyset.caps_4)
-        keyset.caps_4:="keyFunc_winbind_activate(4)"
+        keyset.caps_4:="keyFunc_doNothing"
     if(!keyset.caps_5)
-        keyset.caps_5:="keyFunc_winbind_activate(5)"
+        keyset.caps_5:="keyFunc_doNothing"
     if(!keyset.caps_6)
         keyset.caps_6:="keyFunc_winbind_activate(6)"
     if(!keyset.caps_7)
@@ -95,9 +95,9 @@ keySchemeInit_capslox(){
     if(!keyset.caps_8)
         keyset.caps_8:="keyFunc_winbind_activate(8)"
     if(!keyset.caps_9)
-        keyset.caps_9:="keyFunc_winbind_activate(9)"
+        keyset.caps_9:="keyFunc_doNothing"
     if(!keyset.caps_0)
-        keyset.caps_0:="keyFunc_winbind_activate(10)"
+        keyset.caps_0:="keyFunc_doNothing"
     if(!keyset.caps_minus)
         keyset.caps_minus:="keyFunc_qbar_upperFolderPath"
     if(!keyset.caps_equal)
@@ -291,7 +291,7 @@ keySchemeInit_capslox(){
     if(!keyset.caps_lalt_wheelUp)
         keyset.caps_lalt_wheelUp:="keyFunc_mouseSpeedIncrease"
     if(!keyset.caps_lalt_wheelDown)
-        keyset.caps_lalt_wheelDown:="keyFunc_mouseSpeedDecrease"
+        keyset.caps_lalt_wheelDown:="keyFunc_mediaPlayPause"
 
     return
 }
@@ -366,7 +366,7 @@ keySchemeInit_capslockPlus(){
     if(!keyset.caps_1)
         keyset.caps_1:="keyFunc_winbind_activate(1)"
     if(!keyset.caps_2)
-        keyset.caps_2:="keyFunc_winbind_activate(2)"
+        keyset.caps_2:="keyFunc_doNothing"
     if(!keyset.caps_3)
         keyset.caps_3:="keyFunc_winbind_activate(3)"
     if(!keyset.caps_4)

@@ -11,6 +11,8 @@
 ; 3. Save, reload Capslock+ (CapsLock+F5)
 ; 4. Press `CapsLock+F7` to invoke the function
 
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+
 #include demo.ahk
 
 
@@ -30,5 +32,11 @@ keyFunc_ctrl_alt(key) {
 
 keyFunc_shift(key) {
   Send +{%key%}
+  return
+}
+
+keyFunc_ctrl_shift(key) {
+  number := Substr(key, 2) ;提取第二个字符 
+  Send ^+%key%
   return
 }
