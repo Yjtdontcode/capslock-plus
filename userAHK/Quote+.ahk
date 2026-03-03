@@ -17,6 +17,7 @@ $'::  ; 前缀$防止递归死循环
 return
 
 #IF QuotePressed
+  `::
   1::
   2::
   3::
