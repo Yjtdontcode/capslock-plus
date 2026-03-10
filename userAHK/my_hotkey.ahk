@@ -22,6 +22,14 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
   send {PgUp}
 return
 
+; alt + b = {ctrl} + {left}
+!b::Send {ctrl Down}{Left Down}
+!b Up::Send {Ctrl Up}{Left Up}
+
+; alt + f = {ctrl} + {right}
+!f::Send {ctrl Down}{Right Down}
+!f Up::Send {Ctrl Up}{Right Up}
+
 
 ; alt + x = alt + f4
 !x::
