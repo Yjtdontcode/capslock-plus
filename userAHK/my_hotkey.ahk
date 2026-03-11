@@ -18,9 +18,9 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 !k Up::Send {Up Up}
 
 ; alt + u = {pageUp}
-!u::
-  send {PgUp}
-return
+!u::send {PgUp}
+; alt + d = {pageDown}
+!d::send {PgDown}
 
 ; alt + b = {ctrl} + {left}
 !b::Send {ctrl Down}{Left Down}
@@ -32,9 +32,7 @@ return
 
 
 ; alt + x = alt + f4
-!x::
-  send !{f4}
-return
+!x::send !{f4}
 
 ; alt + c = {CapsLock}
 !c::
@@ -43,12 +41,8 @@ return
 
 
 ; alt + ; = volumeDown
-!;::
-  sendinput, {volume_Down}
-return
+!;::sendinput, {volume_Down}
 
 ; alt + ' = volumeUp
-!'::
-  sendinput, {volume_Up}
-return
+!'::sendinput, {volume_Up}
 
