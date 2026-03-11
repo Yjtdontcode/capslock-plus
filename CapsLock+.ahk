@@ -726,7 +726,7 @@ return
 ; keyFunc_send("{backspace down}{backspace up}")
 ;return
 
-;----------------------------------------
+;--------------------caps + win--------------------
 
 #1::
 try
@@ -843,33 +843,37 @@ return
 ;  return
 
 
-;--------------------caps + shift----------------------
-
-+backspace::
-  keyFunc_backwardDeleteLine()
-  Capslock2:=""
+;--------------------caps + lshift----------------------
+<+h::
+  runFunc(keyset.caps_lshift_h)
+CapsLock2:=""
 return
 
-+delete::
-  keyFunc_forwardDeleteLine()
-  Capslock2:=""
+<+j::
+try
+  runFunc(keyset.caps_lshift_j)
+CapsLock2:=""
 return
 
-+l::  ; 下一首歌
-  Send {Media_Next}
-  Capslock2:=""
+<+l::
+  runFunc(keyset.caps_lshift_l)
+Capslock2:=""
 return
 
-+h::  ; 上一首歌
-  Send {Media_Prev}
-  CapsLock2:=""
+<+p::
+  runFunc(keyset.caps_lshift_p)
+CapsLock2:=""
 return
 
-+p::  ; 暂停播放
-  Send {Media_Play_Pause}
-  CapsLock2:=""
+<+backspace::
+  runFunc(keyset.caps_lshift_backspace)
+Capslock2:=""
 return
 
+<+delete::
+  runFunc(keyset.caps_lshift_delete)
+Capslock2:=""
+return
 
 +1::
 +2::
@@ -884,14 +888,6 @@ return
   keyFunc_ctrl_shift(A_ThisHotkey)
   CapsLock2:=""
 return
-
-; --------------------------------------
-
-' & 1::Send, ^+1
-' & 2::Send, ^+2
-' & 3::Send, ^+3
-' & 4::Send, ^+4
-' & 5::Send, ^+5
 
 #If
 

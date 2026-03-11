@@ -261,6 +261,20 @@ keySchemeInit_capslox(){
         keyset.caps_lalt_space:="keyFunc_doNothing"
     if(!keyset.caps_lalt_ralt)
         keyset.caps_lalt_ralt:="keyFunc_doNothing"
+
+    ;--------------------LShift-------------------
+    if(!keyset.caps_lshift_h)
+        keyset.caps_lshift_h:="keyFunc_mediaPrev"
+    if(!keyset.caps_lshift_j)
+        keyset.caps_lshift_j:="keyFunc_enterWherever"
+    if(!keyset.caps_lshift_l)
+        keyset.caps_lshift_l:="keyFunc_mediaNext"
+    if(!keyset.caps_lshift_p)
+        keyset.caps_lshift_p:="keyFunc_mediaPlayPause"
+    if(!keyset.caps_lshift_delete)
+        keyset.caps_lshift_delete:="keyFunc_forwardDeleteLine"
+    if(!keyset.caps_lshift_backspace)
+        keyset.caps_lshift_backspace:="keyFunc_backwardDeleteLine"
         
     ;--------------------window-------------------
     if(!keyset.caps_win_1)
