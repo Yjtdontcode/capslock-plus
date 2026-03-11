@@ -18,9 +18,10 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 !k Up::Send {Up Up}
 
 ; alt + u = {pageUp}
-!u::send {PgUp}
+!u::Send {PgUp}
+
 ; alt + d = {pageDown}
-!d::send {PgDown}
+!d::Send {PgDn}
 
 ; alt + b = {ctrl} + {left}
 !b::Send {ctrl Down}{Left Down}
