@@ -46,4 +46,3 @@ return
 
 ; alt + ' = volumeUp
 !'::sendinput, {volume_Up}
-

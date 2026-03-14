@@ -844,49 +844,28 @@ return
 
 
 ;--------------------caps + lshift----------------------
+<+1::
+<+2::
+<+3::
+<+4::
+<+5::
+<+6::
+<+7::
+<+8::
+<+9::
+<+0::
 <+h::
-  runFunc(keyset.caps_lshift_h)
-CapsLock2:=""
-return
-
 <+j::
-try
-  runFunc(keyset.caps_lshift_j)
-CapsLock2:=""
-return
-
 <+l::
-  runFunc(keyset.caps_lshift_l)
-Capslock2:=""
-return
-
 <+p::
-  runFunc(keyset.caps_lshift_p)
-CapsLock2:=""
-return
-
 <+backspace::
-  runFunc(keyset.caps_lshift_backspace)
-Capslock2:=""
-return
-
 <+delete::
-  runFunc(keyset.caps_lshift_delete)
-Capslock2:=""
-return
-
-+1::
-+2::
-+3::
-+4::
-+5::
-+6::
-+7::
-+8::
-+9::
-+0::
-  keyFunc_ctrl_shift(A_ThisHotkey)
-  CapsLock2:=""
+try
+    ; 核心：提取纯按键名（去掉!<等修饰符前缀）
+    pureKey := StrReplace(A_ThisHotkey, "<+")  ; 替换掉<+前缀
+    ; 调用runFunc，只用纯按键名拼接
+    runFunc(keyset["caps_lshift_" . pureKey])
+CapsLock2:=""
 return
 
 #If
