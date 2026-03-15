@@ -1,6 +1,9 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 ; ----------- alt + ---------------
 
+; 在三角洲停用部分快捷键
+#IfWinNotActive, ahk_exe DeltaForceClient-Win64-Shipping.exe
+
 ; alt + h = {left}
 !h::Send {Left Down}
 !h Up::Send {Left Up}
@@ -31,6 +34,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 !f::Send {ctrl Down}{Right Down}
 !f Up::Send {Ctrl Up}{Right Up}
 
+#If
 
 ; alt + x = alt + f4
 !x::send !{f4}
