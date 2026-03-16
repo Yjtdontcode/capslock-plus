@@ -913,10 +913,7 @@ keyFunc_goCjkPage(){
 }
 
 keyFunc_ctrl_lClick(){
-    Send, {Ctrl Down}{LButton Down}
-    KeyWait, LButton  ; 等待左键释放
-    Send, {LButton Up}{Ctrl Up}
-    return
+    Send, ^{LButton}
 }
 
 ; 鼠标左键点击
