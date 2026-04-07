@@ -844,6 +844,16 @@ return
 
 
 ;--------------------caps + lshift----------------------
+<+c::
+  runFunc(keyset.caps_lshift_c)
+CapsLock2:=""
+return
+
+<+v::
+  runFunc(keyset.caps_lshift_v)
+CapsLock2:=""
+return
+
 <+h::
   runFunc(keyset.caps_lshift_h)
 CapsLock2:=""
@@ -885,6 +895,8 @@ return
 +8::
 +9::
 +0::
++t::
++w::
   keyFunc_ctrl_shift(A_ThisHotkey)
   CapsLock2:=""
 return

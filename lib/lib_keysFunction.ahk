@@ -727,6 +727,16 @@ keyFunc_save(){
     return
 }
 
+keyFunc_ctrl_insert() {
+    SendInput, ^Insert
+    return
+}
+
+keyFunc_shift_insert() {
+    SendInput, +Insert
+    return
+}
+
 ; 无法实现
 keyFunc_switchIM(){
     ;SendInput, !{Shift Down}{Shift Up}
