@@ -24,12 +24,14 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 !d::Send {PgDn}
 
 ; alt + b = {ctrl} + {left}
-!b::Send {ctrl Down}{Left Down}
-!b Up::Send {Ctrl Up}{Left Up}
+!b::Send ^{Left}
+;!b::Send {ctrl Down}{Left Down}
+;!b Up::Send {Ctrl Up}{Left Up}
 
 ; alt + f = {ctrl} + {right}
-!f::Send {ctrl Down}{Right Down}
-!f Up::Send {Ctrl Up}{Right Up}
+!f::Send ^{Right}
+;!f::Send {ctrl Down}{Right Down}
+;!f Up::Send {Ctrl Up}{Right Up}
 
 
 ; alt + x = alt + f4
