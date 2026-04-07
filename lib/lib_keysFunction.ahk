@@ -728,12 +728,12 @@ keyFunc_save(){
 }
 
 keyFunc_ctrl_insert() {
-    SendInput, ^Insert
+    SendEvent, {Ctrl down}{Insert}{Ctrl up}
     return
 }
 
 keyFunc_shift_insert() {
-    SendInput, +Insert
+    SendEvent, {Shift down}{Insert}{Shift up}
     return
 }
 

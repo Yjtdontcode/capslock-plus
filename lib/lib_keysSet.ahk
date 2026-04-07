@@ -264,9 +264,9 @@ keySchemeInit_capslox(){
 
     ;--------------------LShift-------------------
     if(!keyset.caps_lshift_c)
-        keyset.caps_lshift_h:="keyFunc_ctrl_insert"
+        keyset.caps_lshift_c:="keyFunc_ctrl_insert"
     if(!keyset.caps_lshift_v)
-        keyset.caps_lshift_j:="keyFunc_shift_insert"
+        keyset.caps_lshift_v:="keyFunc_shift_insert"
     if(!keyset.caps_lshift_h)
         keyset.caps_lshift_h:="keyFunc_mediaPrev"
     if(!keyset.caps_lshift_j)

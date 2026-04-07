@@ -2,36 +2,32 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 ; ----------- alt + ---------------
 
 ; alt + h = {left}
-!h::Send {Left Down}
-!h Up::Send {Left Up}
+!h::SendInput {Left Down}
+!h Up::SendInput {Left Up}
 
 ; alt + l = {Right}
-!l::Send {Right Down}
-!l Up::Send {Right Up}
+!l::SendInput {Right Down}
+!l Up::SendInput {Right Up}
 
 ; alt + j = {down}
 !j::Send {Down Down}
-!j Up::Send {Down Up}
+!j Up::SendInput {Down Up}
 
 ; alt + k = {up}
-!k::Send {Up Down}
-!k Up::Send {Up Up}
+!k::SendInput {Up Down} 
+!k Up::SendInput {Up Up}
 
 ; alt + u = {pageUp}
-!u::Send {PgUp}
+!u::SendInput {PgUp}
 
 ; alt + d = {pageDown}
-!d::Send {PgDn}
+!d::SendInput {PgDn}
 
 ; alt + b = {ctrl} + {left}
-!b::Send ^{Left}
-;!b::Send {ctrl Down}{Left Down}
-;!b Up::Send {Ctrl Up}{Left Up}
+!b::SendInput ^{Left}
 
 ; alt + f = {ctrl} + {right}
-!f::Send ^{Right}
-;!f::Send {ctrl Down}{Right Down}
-;!f Up::Send {Ctrl Up}{Right Up}
+!f::SendInput ^{Right}
 
 
 ; alt + x = alt + f4
