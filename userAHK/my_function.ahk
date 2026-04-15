@@ -26,7 +26,7 @@ keyFunc_ctrl(key){  ; ssy
 }
 
 keyFunc_ctrl_alt(key) {
-  SendInput, ^!{%key%}
+  Send ^!{%key%}
   return
 }
 
